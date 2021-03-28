@@ -1,0 +1,9 @@
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\bin\Debug\RussianCheckers.exe.config
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\bin\Debug\RussianCheckers.exe
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\bin\Debug\RussianCheckers.pdb
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.csprojAssemblyReference.cache
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.Properties.Resources.resources
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.csproj.GenerateResource.cache
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.csproj.CoreCompileInputs.cache
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.exe
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.pdb
