@@ -15,6 +15,7 @@ namespace RussianCheckers
         public Form1()
         {
             InitializeComponent();
+            //Mergeeeeee
         }
     }
 }
