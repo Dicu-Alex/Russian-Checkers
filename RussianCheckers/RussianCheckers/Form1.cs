@@ -57,6 +57,40 @@ namespace RussianCheckers
 
                     left += 82;
 
+                    P[i, j].Name = i + " " + j;
+
+                    if (i < (n / 2) - 1 && P[i, j].BackColor == Color.Black)
+                    {
+                        P[i, j].Image = Properties.Resources.black_man;
+                        P[i, j].Name += " black_man";
+                    }
+
+                    else if (i > (n / 2) && P[i, j].BackColor == Color.Black) {
+                        P[i, j].Image = Properties.Resources.white_man;
+                        P[i, j].Name += " white_man";
+                    }
+
+                    P[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
+
+                    P[i, j].MouseHover += (sender2, e2) => {
+                        PictureBox p = sender2 as PictureBox;
+
+                        if (p.Image != null)
+                        {
+                            p.BackColor = Color.FromArgb(255, 120, 85, 138);
+                        }
+                    };
+
+                    P[i, j].MouseLeave += (sender2, e2) =>
+                    {
+                        PictureBox p = sender2 as PictureBox;
+
+                        if (p.Image != null)
+                        {
+                            p.BackColor = Color.Black;
+                        }
+                    };
+
                     board.Controls.Add(P[i, j]);
                 }
 
