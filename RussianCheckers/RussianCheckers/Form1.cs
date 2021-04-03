@@ -19,11 +19,11 @@ namespace RussianCheckers
 
         /*int n;
 
-        PictureBox[,] P;
+        PictureBox[,] P;*/
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            n = 8;
+           /* n = 8;
             P = new PictureBox[n, n];
 
             int left = 2, top = 2;
@@ -61,7 +61,7 @@ namespace RussianCheckers
                 }
 
                 top += 82;
-            }
-        }*/
+            }*/
+        }
     }
 }
