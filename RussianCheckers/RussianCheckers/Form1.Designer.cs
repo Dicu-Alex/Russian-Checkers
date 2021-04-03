@@ -60,7 +60,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Russian Checkers";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

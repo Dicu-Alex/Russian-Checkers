@@ -21,31 +21,35 @@ namespace RussianCheckers
 
         PictureBox[,] P;
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load_1(object sender, EventArgs e)
         {
             n = 8;
             P = new PictureBox[n, n];
-            
+
             int left = 2, top = 2;
 
             Color[] colors = new Color[] {
                 Color.White, Color.Black
             };
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++)
+            {
                 left = 2;
 
-                if (i % 2 == 0) {
+                if (i % 2 == 0)
+                {
                     colors[0] = Color.White;
                     colors[1] = Color.Black;
                 }
 
-                else {
+                else
+                {
                     colors[0] = Color.Black;
                     colors[1] = Color.White;
                 }
 
-                for (int j = 0; j < n; j++) {
+                for (int j = 0; j < n; j++)
+                {
                     P[i, j] = new PictureBox();
                     P[i, j].BackColor = colors[(j % 2 == 0) ? 1 : 0];
                     P[i, j].Location = new Point(left, top);
@@ -58,11 +62,6 @@ namespace RussianCheckers
 
                 top += 82;
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
