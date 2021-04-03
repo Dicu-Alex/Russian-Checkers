@@ -17,7 +17,7 @@ namespace RussianCheckers
             InitializeComponent();
         }
 
-        int n;
+        /*int n;
 
         PictureBox[,] P;
 
@@ -62,6 +62,6 @@ namespace RussianCheckers
 
                 top += 82;
             }
-        }
+        }*/
     }
 }

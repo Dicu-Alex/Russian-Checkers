@@ -17,3 +17,4 @@ C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\Russia
 C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.exe
 C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.pdb
 C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.Form1.resources
+D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\RussianCheckers\obj\Debug\RussianCheckers.Form1.resources
