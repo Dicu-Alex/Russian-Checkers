@@ -81,16 +81,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\black_man.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\black_crown.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\board_black.jpg" />
+    <None Include="Resources\black_man.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\board_white.jpg" />
+    <None Include="Resources\next_possition.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\white_crown.png" />

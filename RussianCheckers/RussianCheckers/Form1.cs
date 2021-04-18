@@ -20,6 +20,7 @@ namespace RussianCheckers
         int n;
 
         PictureBox[,] P;
+        string color = "r", k = "", B1 = "", B2 = "";
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
@@ -91,10 +92,79 @@ namespace RussianCheckers
                         }
                     };
 
+                    P[i, j].Click += (sender3, e3) =>
+                     {
+                         PictureBox p = sender3 as PictureBox;
+
+                         if (p.Image != null)
+                         {
+                             int c = -1, x, y;
+
+                             F();
+                             
+                             if (p.Name.Split(' ')[2] == color)
+                             {
+                                 x = Convert.ToInt32(p.Name.Split(' ')[0]);
+                                 y = Convert.ToInt32(p.Name.Split(' ')[1]);
+                                 k = p.Name;
+
+                                 if (p.Name.Split(' ')[2] == "r")
+                                 {
+                                     c = 1;
+                                 }
+
+                                 try
+                                 {
+                                     if (P[x + c, y + 1].Image == null)
+                                     {
+                                         P[x + c, y + 1].Image = Properties.Resources.next_possition;
+                                         P[x + c, y + 1].Name = (x + c) + " " + (y + 1) + " b";
+                                         B1 = (x + c) + " " + (y + 1);
+                                     }
+                                 }
+
+                                 catch { }
+
+                                 try
+                                 {
+                                     if (P[x + c, y - 1].Image == null)
+                                     {
+                                         P[x + c, y - 1].Image = Properties.Resources.next_possition;
+                                         P[x + c, y - 1].Name = (x + c) + " " + (y - 1) + " b";
+                                         B2 = (x + c) + " " + (y - 1);
+                                     }
+                                 }
+
+                                 catch { }
+                             }
+                         }
+
+                     };
+
                     board.Controls.Add(P[i, j]);
                 }
 
                 top += 82;
+            }
+        }
+
+        public void F() 
+        {
+            if (B1 != "") {
+                int x, y;
+
+                x = Convert.ToInt32(B1.Split(' ')[0]);
+                y = Convert.ToInt32(B1.Split(' ')[1]);
+                P[x, y].Image = null;
+            }
+
+            if (B2 != "")
+            {
+                int x, y;
+
+                x = Convert.ToInt32(B2.Split(' ')[0]);
+                y = Convert.ToInt32(B2.Split(' ')[1]);
+                P[x, y].Image = null;
             }
         }
     }

@@ -83,19 +83,9 @@ namespace RussianCheckers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap board_black {
+        internal static System.Drawing.Bitmap next_possition {
             get {
-                object obj = ResourceManager.GetObject("board_black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap board_white {
-            get {
-                object obj = ResourceManager.GetObject("board_white", resourceCulture);
+                object obj = ResourceManager.GetObject("next_possition", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
