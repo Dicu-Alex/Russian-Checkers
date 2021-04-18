@@ -20,7 +20,12 @@ namespace RussianCheckers
         int n;
 
         PictureBox[,] P;
-        string color = "r", k = "", B1 = "", B2 = "";
+        string color = "black_man", k = "", B1 = "", B2 = "";
+
+        private void board_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
@@ -101,41 +106,77 @@ namespace RussianCheckers
                              int c = -1, x, y;
 
                              F();
-                             
-                             if (p.Name.Split(' ')[2] == color)
+
+                             if (p.Name.Split(' ')[2] == "next_possition")
                              {
-                                 x = Convert.ToInt32(p.Name.Split(' ')[0]);
-                                 y = Convert.ToInt32(p.Name.Split(' ')[1]);
-                                 k = p.Name;
-
-                                 if (p.Name.Split(' ')[2] == "r")
+                                 if (color == "black_man")
                                  {
-                                     c = 1;
+                                     color = "white_man";
                                  }
 
-                                 try
+                                 else
                                  {
-                                     if (P[x + c, y + 1].Image == null)
+                                     color = "black_man";
+                                 }
+
+                                 x = Convert.ToInt32(k.Split(' ')[0]);
+                                 y = Convert.ToInt32(k.Split(' ')[1]);
+                                 B1 = "";
+                                 B2 = "";
+
+                                 if (k.Split(' ')[2] == "black_man")
+                                 {
+                                     p.Image = Properties.Resources.black_man;
+                                     p.Name = p.Name.Replace("next_possition", "black_man");
+                                 }
+
+                                 if (k.Split(' ')[2] == "white_man")
+                                 {
+                                     p.Image = Properties.Resources.white_man;
+                                     p.Name = p.Name.Replace("next_possition", "white_man");
+                                 }
+
+                                 P[x, y].Image = null;
+                             }
+
+                             else
+                             {
+
+                                 if (p.Name.Split(' ')[2] == color)
+                                 {
+                                     x = Convert.ToInt32(p.Name.Split(' ')[0]);
+                                     y = Convert.ToInt32(p.Name.Split(' ')[1]);
+                                     k = p.Name;
+
+                                     if (p.Name.Split(' ')[2] == "r")
                                      {
-                                         P[x + c, y + 1].Image = Properties.Resources.next_possition;
-                                         P[x + c, y + 1].Name = (x + c) + " " + (y + 1) + " b";
-                                         B1 = (x + c) + " " + (y + 1);
+                                         c = 1;
                                      }
-                                 }
 
-                                 catch { }
-
-                                 try
-                                 {
-                                     if (P[x + c, y - 1].Image == null)
+                                     try
                                      {
-                                         P[x + c, y - 1].Image = Properties.Resources.next_possition;
-                                         P[x + c, y - 1].Name = (x + c) + " " + (y - 1) + " b";
-                                         B2 = (x + c) + " " + (y - 1);
+                                         if (P[x + c, y + 1].Image == null)
+                                         {
+                                             P[x + c, y + 1].Image = Properties.Resources.next_possition;
+                                             P[x + c, y + 1].Name = (x + c) + " " + (y + 1) + " next_possition";
+                                             B1 = (x + c) + " " + (y + 1);
+                                         }
                                      }
-                                 }
 
-                                 catch { }
+                                     catch { }
+
+                                     try
+                                     {
+                                         if (P[x + c, y - 1].Image == null)
+                                         {
+                                             P[x + c, y - 1].Image = Properties.Resources.next_possition;
+                                             P[x + c, y - 1].Name = (x + c) + " " + (y - 1) + " next_possition";
+                                             B2 = (x + c) + " " + (y - 1);
+                                         }
+                                     }
+
+                                     catch { }
+                                 }
                              }
                          }
 

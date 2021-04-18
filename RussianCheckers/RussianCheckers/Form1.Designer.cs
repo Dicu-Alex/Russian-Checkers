@@ -40,6 +40,7 @@
             this.board.Name = "board";
             this.board.Size = new System.Drawing.Size(880, 810);
             this.board.TabIndex = 0;
+            this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
             // Form1
             // 
