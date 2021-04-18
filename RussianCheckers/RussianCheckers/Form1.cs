@@ -20,7 +20,7 @@ namespace RussianCheckers
         int n;
 
         PictureBox[,] P;
-        string color = "black_man", k = "", B1 = "", B2 = "";
+        string color = "white_man", k = "", B1 = "", B2 = "";
 
         private void board_Paint(object sender, PaintEventArgs e)
         {
@@ -47,7 +47,7 @@ namespace RussianCheckers
                     colors[0] = Color.White;
                     colors[1] = Color.Black;
                 }
-
+              
                 else
                 {
                     colors[0] = Color.Black;
@@ -67,13 +67,13 @@ namespace RussianCheckers
 
                     if (i < (n / 2) - 1 && P[i, j].BackColor == Color.Black)
                     {
-                        P[i, j].Image = Properties.Resources.black_man;
-                        P[i, j].Name += " black_man";
+                        P[i, j].Image = Properties.Resources.white_man;
+                        P[i, j].Name += " white_man";
                     }
 
                     else if (i > (n / 2) && P[i, j].BackColor == Color.Black) {
-                        P[i, j].Image = Properties.Resources.white_man;
-                        P[i, j].Name += " white_man";
+                        P[i, j].Image = Properties.Resources.black_man;
+                        P[i, j].Name += " black_man";
                     }
 
                     P[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
@@ -109,14 +109,14 @@ namespace RussianCheckers
 
                              if (p.Name.Split(' ')[2] == "next_possition")
                              {
-                                 if (color == "black_man")
+                                 if (color == "white_man")
                                  {
-                                     color = "white_man";
+                                     color = "black_man";
                                  }
 
                                  else
                                  {
-                                     color = "black_man";
+                                     color = "white_man";
                                  }
 
                                  x = Convert.ToInt32(k.Split(' ')[0]);
@@ -124,16 +124,16 @@ namespace RussianCheckers
                                  B1 = "";
                                  B2 = "";
 
-                                 if (k.Split(' ')[2] == "black_man")
-                                 {
-                                     p.Image = Properties.Resources.black_man;
-                                     p.Name = p.Name.Replace("next_possition", "black_man");
-                                 }
-
                                  if (k.Split(' ')[2] == "white_man")
                                  {
                                      p.Image = Properties.Resources.white_man;
                                      p.Name = p.Name.Replace("next_possition", "white_man");
+                                 }
+
+                                 if (k.Split(' ')[2] == "black_man")
+                                 {
+                                     p.Image = Properties.Resources.black_man;
+                                     p.Name = p.Name.Replace("next_possition", "black_man");
                                  }
 
                                  P[x, y].Image = null;
@@ -141,14 +141,13 @@ namespace RussianCheckers
 
                              else
                              {
-
                                  if (p.Name.Split(' ')[2] == color)
                                  {
                                      x = Convert.ToInt32(p.Name.Split(' ')[0]);
                                      y = Convert.ToInt32(p.Name.Split(' ')[1]);
                                      k = p.Name;
 
-                                     if (p.Name.Split(' ')[2] == "r")
+                                     if (p.Name.Split(' ')[2] == "white_man")
                                      {
                                          c = 1;
                                      }
