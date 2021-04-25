@@ -19,8 +19,13 @@ namespace RussianCheckers
 
         int n;
 
-        PictureBox[,] P;
-        string color = "white_man", k = "", B1 = "", B2 = "";
+        PictureBox[,] Picture;
+        string color = "white_man", k1 = "", k2 = "", B1 = "", B2 = "", win;
+        int black = 12, white = 12;
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
 
         private void board_Paint(object sender, PaintEventArgs e)
         {
@@ -30,7 +35,7 @@ namespace RussianCheckers
         private void Form1_Load_1(object sender, EventArgs e)
         {
             n = 8;
-            P = new PictureBox[n, n];
+            Picture = new PictureBox[n, n];
 
             int left = 2, top = 2;
 
@@ -56,29 +61,29 @@ namespace RussianCheckers
 
                 for (int j = 0; j < n; j++)
                 {
-                    P[i, j] = new PictureBox();
-                    P[i, j].BackColor = colors[(j % 2 == 0) ? 1 : 0];
-                    P[i, j].Location = new Point(left, top);
-                    P[i, j].Size = new Size(82, 82);
+                    Picture[i, j] = new PictureBox();
+                    Picture[i, j].BackColor = colors[(j % 2 == 0) ? 1 : 0];
+                    Picture[i, j].Location = new Point(left, top);
+                    Picture[i, j].Size = new Size(82, 82);
 
                     left += 82;
 
-                    P[i, j].Name = i + " " + j;
+                    Picture[i, j].Name = i + " " + j;
 
-                    if (i < (n / 2) - 1 && P[i, j].BackColor == Color.Black)
+                    if (i < (n / 2) - 1 && Picture[i, j].BackColor == Color.Black)
                     {
-                        P[i, j].Image = Properties.Resources.white_man;
-                        P[i, j].Name += " white_man";
+                        Picture[i, j].Image = Properties.Resources.white_man;
+                        Picture[i, j].Name += " white_man";
                     }
 
-                    else if (i > (n / 2) && P[i, j].BackColor == Color.Black) {
-                        P[i, j].Image = Properties.Resources.black_man;
-                        P[i, j].Name += " black_man";
+                    else if (i > (n / 2) && Picture[i, j].BackColor == Color.Black) {
+                        Picture[i, j].Image = Properties.Resources.black_man;
+                        Picture[i, j].Name += " black_man";
                     }
 
-                    P[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
+                    Picture[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
 
-                    P[i, j].MouseHover += (sender2, e2) => {
+                    Picture[i, j].MouseHover += (sender2, e2) => {
                         PictureBox p = sender2 as PictureBox;
 
                         if (p.Image != null)
@@ -87,7 +92,7 @@ namespace RussianCheckers
                         }
                     };
 
-                    P[i, j].MouseLeave += (sender2, e2) =>
+                    Picture[i, j].MouseLeave += (sender2, e2) =>
                     {
                         PictureBox p = sender2 as PictureBox;
 
@@ -97,7 +102,7 @@ namespace RussianCheckers
                         }
                     };
 
-                    P[i, j].Click += (sender3, e3) =>
+                    Picture[i, j].Click += (sender3, e3) =>
                      {
                          PictureBox p = sender3 as PictureBox;
 
@@ -119,24 +124,60 @@ namespace RussianCheckers
                                      color = "white_man";
                                  }
 
-                                 x = Convert.ToInt32(k.Split(' ')[0]);
-                                 y = Convert.ToInt32(k.Split(' ')[1]);
+                                 x = Convert.ToInt32(k1.Split(' ')[0]);
+                                 y = Convert.ToInt32(k1.Split(' ')[1]);
+
                                  B1 = "";
                                  B2 = "";
 
-                                 if (k.Split(' ')[2] == "white_man")
+                                 if (k1.Split(' ')[2] == "white_man")
                                  {
                                      p.Image = Properties.Resources.white_man;
                                      p.Name = p.Name.Replace("next_possition", "white_man");
                                  }
 
-                                 if (k.Split(' ')[2] == "black_man")
+                                 else if (k1.Split(' ')[2] == "black_man")
                                  {
                                      p.Image = Properties.Resources.black_man;
                                      p.Name = p.Name.Replace("next_possition", "black_man");
                                  }
 
-                                 P[x, y].Image = null;
+                                 Picture[x, y].Image = null;
+
+                                 if(k2 != "")
+                                 {
+                                     x = Convert.ToInt32(k2.Split(' ')[0]);
+                                     y = Convert.ToInt32(k2.Split(' ')[1]);
+
+                                     Picture[x, y].Image = null;
+
+                                     if (k2.Split(' ')[2] == "black_man")
+                                     {
+                                         black--;
+                                     }
+
+                                     else 
+                                     {
+                                         white--;
+                                     }
+
+                                     Score_white.Text = white + "";
+                                     Score_black.Text = black + "";
+
+                                     k2 = "";
+
+                                     if (white == 1)
+                                     {
+                                         win = "Black win";
+                                         MessageBox.Show(win);
+                                     }
+
+                                     if (black == 1)
+                                     {
+                                         win = "White win";
+                                         MessageBox.Show(win);
+                                     }
+                                 }
                              }
 
                              else
@@ -145,7 +186,7 @@ namespace RussianCheckers
                                  {
                                      x = Convert.ToInt32(p.Name.Split(' ')[0]);
                                      y = Convert.ToInt32(p.Name.Split(' ')[1]);
-                                     k = p.Name;
+                                     k1 = p.Name;
 
                                      if (p.Name.Split(' ')[2] == "white_man")
                                      {
@@ -154,11 +195,20 @@ namespace RussianCheckers
 
                                      try
                                      {
-                                         if (P[x + c, y + 1].Image == null)
+                                         if (Picture[x + c, y + 1].Image == null)
                                          {
-                                             P[x + c, y + 1].Image = Properties.Resources.next_possition;
-                                             P[x + c, y + 1].Name = (x + c) + " " + (y + 1) + " next_possition";
+                                             Picture[x + c, y + 1].Image = Properties.Resources.next_possition;
+                                             Picture[x + c, y + 1].Name = (x + c) + " " + (y + 1) + " next_possition";
                                              B1 = (x + c) + " " + (y + 1);
+                                         }
+
+                                         else if (Picture[x + c, y + 1].Name.Split(' ')[2] != p.Name.Split(' ')[2] && Picture[x + (c * 2), y + 2].Image == null)
+                                         {
+                                             Picture[x + (c * 2), y + 2].Image = Properties.Resources.next_possition;
+                                             Picture[x + (c * 2), y + 2].Name = (x + (c * 2)) + " " + (y + 2) + " next_possition";
+
+                                             B1 = (x + (c * 2)) + " " + (y + 2);
+                                             k2 = (x + c) + " " + (y + 1) + " " + Picture[x + c, y + 1].Name.Split(' ')[2];
                                          }
                                      }
 
@@ -166,11 +216,20 @@ namespace RussianCheckers
 
                                      try
                                      {
-                                         if (P[x + c, y - 1].Image == null)
+                                         if (Picture[x + c, y - 1].Image == null)
                                          {
-                                             P[x + c, y - 1].Image = Properties.Resources.next_possition;
-                                             P[x + c, y - 1].Name = (x + c) + " " + (y - 1) + " next_possition";
+                                             Picture[x + c, y - 1].Image = Properties.Resources.next_possition;
+                                             Picture[x + c, y - 1].Name = (x + c) + " " + (y - 1) + " next_possition";
                                              B2 = (x + c) + " " + (y - 1);
+                                         }
+
+                                         else if (Picture[x + c, y - 1].Name.Split(' ')[2] != p.Name.Split(' ')[2] && Picture[x + (c * 2), y - 2].Image == null)
+                                         {
+                                             Picture[x + (c * 2), y - 2].Image = Properties.Resources.next_possition;
+                                             Picture[x + (c * 2), y - 2].Name = (x + (c * 2)) + " " + (y - 2) + " next_possition";
+
+                                             B1 = (x + (c * 2)) + " " + (y - 2);
+                                             k2 = (x + c) + " " + (y - 1) + " " + Picture[x + c, y - 1].Name.Split(' ')[2];
                                          }
                                      }
 
@@ -181,7 +240,7 @@ namespace RussianCheckers
 
                      };
 
-                    board.Controls.Add(P[i, j]);
+                    board.Controls.Add(Picture[i, j]);
                 }
 
                 top += 82;
@@ -195,7 +254,7 @@ namespace RussianCheckers
 
                 x = Convert.ToInt32(B1.Split(' ')[0]);
                 y = Convert.ToInt32(B1.Split(' ')[1]);
-                P[x, y].Image = null;
+                Picture[x, y].Image = null;
             }
 
             if (B2 != "")
@@ -204,7 +263,7 @@ namespace RussianCheckers
 
                 x = Convert.ToInt32(B2.Split(' ')[0]);
                 y = Convert.ToInt32(B2.Split(' ')[1]);
-                P[x, y].Image = null;
+                Picture[x, y].Image = null;
             }
         }
     }
