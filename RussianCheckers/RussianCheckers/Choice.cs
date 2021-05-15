@@ -12,6 +12,8 @@ namespace RussianCheckers
 {
     public partial class Choice : Form
     {
+        String select;
+
         public Choice()
         {
             InitializeComponent();
@@ -24,9 +26,38 @@ namespace RussianCheckers
 
         private void btnNextColor_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form1 f = new Form1();
-            f.ShowDialog();
+            string value = "";
+
+            bool isChecked = btnBlackP.Checked;
+
+            if (isChecked)
+                value = btnBlackP.Text;
+            else
+                value = btnWhiteP.Text;
+
+            if (select == "Black")
+            {
+                this.Hide();
+                Form1 f = new Form1();
+                f.ShowDialog();
+            }
+
+            else if (select == "White")
+            {
+                this.Hide();
+                Form1 f = new Form1();
+                f.ShowDialog();
+            }
+        }
+
+        private void btnBlackP_CheckedChanged(object sender, EventArgs e)
+        {
+            select = "Black";
+        }
+
+        private void btnWhiteP_CheckedChanged(object sender, EventArgs e)
+        {
+            select = "White";
         }
     }
 }

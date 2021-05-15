@@ -12,6 +12,8 @@ namespace RussianCheckers
 {
     public partial class Player : Form
     {
+        String select;
+
         public Player()
         {
             InitializeComponent();
@@ -24,9 +26,34 @@ namespace RussianCheckers
 
         private void btnNextPlayer_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Choice c = new Choice();
-            c.ShowDialog();
+            if (select == "Single player")
+            {
+                this.Hide();
+                Choice c = new Choice();
+                c.ShowDialog();
+            }
+
+            else if (select == "Two players")
+            {
+                this.Hide();
+                Form1 f = new Form1();
+                f.ShowDialog();
+            }
+
+            else {
+                MessageBox.Show("No option selected!");
+            }
+            
+        }
+
+        private void SingleP_CheckedChanged(object sender, EventArgs e)
+        {
+            select = "Single player";
+        }
+
+        private void TwoP_CheckedChanged(object sender, EventArgs e)
+        {
+            select = "Two players";
         }
     }
 }

@@ -33,6 +33,10 @@
             this.Black_player = new System.Windows.Forms.PictureBox();
             this.Score_white = new System.Windows.Forms.Label();
             this.Score_black = new System.Windows.Forms.Label();
+            this.player1 = new System.Windows.Forms.Label();
+            this.player2 = new System.Windows.Forms.Label();
+            this.player_white = new System.Windows.Forms.TextBox();
+            this.player_black = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.White_player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Black_player)).BeginInit();
             this.SuspendLayout();
@@ -41,19 +45,20 @@
             // 
             this.board.BackColor = System.Drawing.Color.White;
             this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.board.Location = new System.Drawing.Point(11, 10);
-            this.board.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.board.Location = new System.Drawing.Point(8, 8);
+            this.board.Margin = new System.Windows.Forms.Padding(2);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(880, 810);
+            this.board.Size = new System.Drawing.Size(660, 658);
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
             // White_player
             // 
             this.White_player.Image = global::RussianCheckers.Properties.Resources.white_man;
-            this.White_player.Location = new System.Drawing.Point(897, 12);
+            this.White_player.Location = new System.Drawing.Point(673, 10);
+            this.White_player.Margin = new System.Windows.Forms.Padding(2);
             this.White_player.Name = "White_player";
-            this.White_player.Size = new System.Drawing.Size(118, 112);
+            this.White_player.Size = new System.Drawing.Size(88, 91);
             this.White_player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.White_player.TabIndex = 1;
             this.White_player.TabStop = false;
@@ -61,9 +66,10 @@
             // Black_player
             // 
             this.Black_player.Image = global::RussianCheckers.Properties.Resources.black_man;
-            this.Black_player.Location = new System.Drawing.Point(897, 707);
+            this.Black_player.Location = new System.Drawing.Point(673, 574);
+            this.Black_player.Margin = new System.Windows.Forms.Padding(2);
             this.Black_player.Name = "Black_player";
-            this.Black_player.Size = new System.Drawing.Size(118, 112);
+            this.Black_player.Size = new System.Drawing.Size(88, 91);
             this.Black_player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Black_player.TabIndex = 2;
             this.Black_player.TabStop = false;
@@ -72,9 +78,10 @@
             // 
             this.Score_white.AutoSize = true;
             this.Score_white.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Score_white.Location = new System.Drawing.Point(1021, 46);
+            this.Score_white.Location = new System.Drawing.Point(766, 37);
+            this.Score_white.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Score_white.Name = "Score_white";
-            this.Score_white.Size = new System.Drawing.Size(66, 46);
+            this.Score_white.Size = new System.Drawing.Size(53, 37);
             this.Score_white.TabIndex = 3;
             this.Score_white.Text = "12";
             this.Score_white.Click += new System.EventHandler(this.label1_Click);
@@ -83,27 +90,73 @@
             // 
             this.Score_black.AutoSize = true;
             this.Score_black.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Score_black.Location = new System.Drawing.Point(1021, 743);
+            this.Score_black.Location = new System.Drawing.Point(766, 604);
+            this.Score_black.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Score_black.Name = "Score_black";
-            this.Score_black.Size = new System.Drawing.Size(66, 46);
+            this.Score_black.Size = new System.Drawing.Size(53, 37);
             this.Score_black.TabIndex = 4;
             this.Score_black.Text = "12";
             // 
+            // player1
+            // 
+            this.player1.AutoSize = true;
+            this.player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player1.Location = new System.Drawing.Point(673, 119);
+            this.player1.Name = "player1";
+            this.player1.Size = new System.Drawing.Size(73, 20);
+            this.player1.TabIndex = 5;
+            this.player1.Text = "Player 1";
+            this.player1.Click += new System.EventHandler(this.player_white_Click);
+            // 
+            // player2
+            // 
+            this.player2.AutoSize = true;
+            this.player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player2.Location = new System.Drawing.Point(673, 538);
+            this.player2.Name = "player2";
+            this.player2.Size = new System.Drawing.Size(73, 20);
+            this.player2.TabIndex = 6;
+            this.player2.Text = "Player 2";
+            // 
+            // player_white
+            // 
+            this.player_white.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player_white.Location = new System.Drawing.Point(752, 116);
+            this.player_white.Name = "player_white";
+            this.player_white.Size = new System.Drawing.Size(187, 26);
+            this.player_white.TabIndex = 7;
+            this.player_white.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.player_white_KeyPress);
+            // 
+            // player_black
+            // 
+            this.player_black.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player_black.Location = new System.Drawing.Point(752, 535);
+            this.player_black.Name = "player_black";
+            this.player_black.Size = new System.Drawing.Size(182, 26);
+            this.player_black.TabIndex = 8;
+            this.player_black.TextChanged += new System.EventHandler(this.player_black_TextChanged);
+            this.player_black.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.player_white_KeyPress);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1268, 831);
+            this.ClientSize = new System.Drawing.Size(951, 675);
+            this.Controls.Add(this.player_black);
+            this.Controls.Add(this.player_white);
+            this.Controls.Add(this.player2);
+            this.Controls.Add(this.player1);
             this.Controls.Add(this.Score_black);
             this.Controls.Add(this.Score_white);
             this.Controls.Add(this.Black_player);
             this.Controls.Add(this.White_player);
             this.Controls.Add(this.board);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Russian Checkers";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.White_player)).EndInit();
@@ -120,6 +173,10 @@
         private System.Windows.Forms.PictureBox Black_player;
         private System.Windows.Forms.Label Score_white;
         private System.Windows.Forms.Label Score_black;
+        private System.Windows.Forms.Label player1;
+        private System.Windows.Forms.Label player2;
+        private System.Windows.Forms.TextBox player_white;
+        private System.Windows.Forms.TextBox player_black;
     }
 }
 
