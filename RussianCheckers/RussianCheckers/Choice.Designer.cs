@@ -35,6 +35,7 @@ namespace RussianCheckers
             this.btnBlackP = new System.Windows.Forms.RadioButton();
             this.btnWhiteP = new System.Windows.Forms.RadioButton();
             this.btnNextColor = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BlackP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WhiteP)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@ namespace RussianCheckers
             // 
             this.BlackP.Image = global::RussianCheckers.Properties.Resources.black_man;
             this.BlackP.Location = new System.Drawing.Point(155, 84);
-            this.BlackP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BlackP.Margin = new System.Windows.Forms.Padding(2);
             this.BlackP.Name = "BlackP";
             this.BlackP.Size = new System.Drawing.Size(90, 89);
             this.BlackP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -66,7 +67,7 @@ namespace RussianCheckers
             // 
             this.WhiteP.Image = global::RussianCheckers.Properties.Resources.white_man;
             this.WhiteP.Location = new System.Drawing.Point(325, 84);
-            this.WhiteP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WhiteP.Margin = new System.Windows.Forms.Padding(2);
             this.WhiteP.Name = "WhiteP";
             this.WhiteP.Size = new System.Drawing.Size(90, 89);
             this.WhiteP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -76,29 +77,34 @@ namespace RussianCheckers
             // btnBlackP
             // 
             this.btnBlackP.AutoSize = true;
-            this.btnBlackP.Location = new System.Drawing.Point(194, 179);
+            this.btnBlackP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBlackP.Location = new System.Drawing.Point(155, 179);
             this.btnBlackP.Margin = new System.Windows.Forms.Padding(2);
             this.btnBlackP.Name = "btnBlackP";
-            this.btnBlackP.Size = new System.Drawing.Size(14, 13);
+            this.btnBlackP.Size = new System.Drawing.Size(71, 24);
             this.btnBlackP.TabIndex = 3;
+            this.btnBlackP.Text = "Black";
             this.btnBlackP.UseVisualStyleBackColor = true;
             this.btnBlackP.CheckedChanged += new System.EventHandler(this.btnBlackP_CheckedChanged);
             // 
             // btnWhiteP
             // 
             this.btnWhiteP.AutoSize = true;
-            this.btnWhiteP.Location = new System.Drawing.Point(364, 179);
-            this.btnWhiteP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWhiteP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWhiteP.Location = new System.Drawing.Point(325, 179);
+            this.btnWhiteP.Margin = new System.Windows.Forms.Padding(2);
             this.btnWhiteP.Name = "btnWhiteP";
-            this.btnWhiteP.Size = new System.Drawing.Size(14, 13);
+            this.btnWhiteP.Size = new System.Drawing.Size(73, 24);
             this.btnWhiteP.TabIndex = 4;
+            this.btnWhiteP.Text = "White";
             this.btnWhiteP.UseVisualStyleBackColor = true;
+            this.btnWhiteP.CheckedChanged += new System.EventHandler(this.btnWhiteP_CheckedChanged);
             // 
             // btnNextColor
             // 
             this.btnNextColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNextColor.Location = new System.Drawing.Point(236, 250);
-            this.btnNextColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNextColor.Margin = new System.Windows.Forms.Padding(2);
             this.btnNextColor.Name = "btnNextColor";
             this.btnNextColor.Size = new System.Drawing.Size(97, 37);
             this.btnNextColor.TabIndex = 6;
@@ -106,18 +112,29 @@ namespace RussianCheckers
             this.btnNextColor.UseVisualStyleBackColor = true;
             this.btnNextColor.Click += new System.EventHandler(this.btnNextColor_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(485, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Choice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNextColor);
             this.Controls.Add(this.btnWhiteP);
             this.Controls.Add(this.btnBlackP);
             this.Controls.Add(this.WhiteP);
             this.Controls.Add(this.Question);
             this.Controls.Add(this.BlackP);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Choice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choice";
@@ -134,8 +151,9 @@ namespace RussianCheckers
         private System.Windows.Forms.PictureBox BlackP;
         private System.Windows.Forms.Label Question;
         private System.Windows.Forms.PictureBox WhiteP;
-        private System.Windows.Forms.RadioButton btnWhiteP;
         private System.Windows.Forms.Button btnNextColor;
-        private System.Windows.Forms.RadioButton btnBlackP;
+        public System.Windows.Forms.RadioButton btnWhiteP;
+        public System.Windows.Forms.RadioButton btnBlackP;
+        public System.Windows.Forms.Label label1;
     }
 }

@@ -17,18 +17,40 @@ namespace RussianCheckers
         string color = "white_man", k1 = "", k2 = "", B1 = "", B2 = "", win;
         int black = 12, white = 12;
 
-        public Form1()
+        private Choice choice;
+
+        public Form1(string select)
         {
             InitializeComponent();
+
+            choice = new Choice();
+
+            if (select == "Black")
+            {
+                player_white.Text = "Computer";
+                player_white.BackColor = Color.LightGray;
+                player_white_text.Hide();
+                player_black_text.Hide();
+            }
+
+            if (select == "White")
+            {
+                player_black.Text = "Computer";
+                player_black.BackColor = Color.LightGray;
+                player_black_text.Hide();
+                player_white_text.Hide();
+            }
+                
         }
 
         private void player_black_TextChanged(object sender, EventArgs e)
         {
+           
         }
 
         private void player_white_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void player_white_KeyPress(object sender, KeyPressEventArgs e)
@@ -36,7 +58,7 @@ namespace RussianCheckers
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) 
             {
                 TextBox player = sender as TextBox;
-
+                
                 if (player.Text != "" && player_white.Text != player_black.Text)
                 {
                     player.ReadOnly = true;

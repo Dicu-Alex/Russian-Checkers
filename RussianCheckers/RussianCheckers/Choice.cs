@@ -12,11 +12,11 @@ namespace RussianCheckers
 {
     public partial class Choice : Form
     {
-        String select;
-
         public Choice()
         {
             InitializeComponent();
+
+
         }
 
         private void Choice_Load(object sender, EventArgs e)
@@ -24,40 +24,40 @@ namespace RussianCheckers
 
         }
 
-        private void btnNextColor_Click(object sender, EventArgs e)
+        public void btnNextColor_Click(object sender, EventArgs e)
         {
-            string value = "";
-
-            bool isChecked = btnBlackP.Checked;
-
-            if (isChecked)
-                value = btnBlackP.Text;
-            else
-                value = btnWhiteP.Text;
-
-            if (select == "Black")
+            if (btnBlackP.Checked == true )
             {
+                string select = "Black";
+
                 this.Hide();
-                Form1 f = new Form1();
+                Form1 f = new Form1(select);
                 f.ShowDialog();
             }
 
-            else if (select == "White")
+            if (btnWhiteP.Checked == true)
             {
+                string select = "White";
+
                 this.Hide();
-                Form1 f = new Form1();
+                Form1 f = new Form1(select);
                 f.ShowDialog();
             }
         }
 
-        private void btnBlackP_CheckedChanged(object sender, EventArgs e)
+        public void btnBlackP_CheckedChanged(object sender, EventArgs e)
         {
-            select = "Black";
+            
         }
 
-        private void btnWhiteP_CheckedChanged(object sender, EventArgs e)
+        public void btnWhiteP_CheckedChanged(object sender, EventArgs e)
         {
-            select = "White";
+            
+        }
+
+        public void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
