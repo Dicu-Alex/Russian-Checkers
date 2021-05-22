@@ -47,20 +47,20 @@
             // 
             this.board.BackColor = System.Drawing.Color.White;
             this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.board.Location = new System.Drawing.Point(8, 8);
-            this.board.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.board.Location = new System.Drawing.Point(11, 10);
+            this.board.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(660, 658);
+            this.board.Size = new System.Drawing.Size(880, 810);
             this.board.TabIndex = 0;
             this.board.Paint += new System.Windows.Forms.PaintEventHandler(this.board_Paint);
             // 
             // White_player
             // 
             this.White_player.Image = global::RussianCheckers.Properties.Resources.white_man;
-            this.White_player.Location = new System.Drawing.Point(673, 10);
-            this.White_player.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.White_player.Location = new System.Drawing.Point(897, 12);
+            this.White_player.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.White_player.Name = "White_player";
-            this.White_player.Size = new System.Drawing.Size(88, 91);
+            this.White_player.Size = new System.Drawing.Size(117, 112);
             this.White_player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.White_player.TabIndex = 1;
             this.White_player.TabStop = false;
@@ -68,10 +68,10 @@
             // Black_player
             // 
             this.Black_player.Image = global::RussianCheckers.Properties.Resources.black_man;
-            this.Black_player.Location = new System.Drawing.Point(673, 574);
-            this.Black_player.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Black_player.Location = new System.Drawing.Point(897, 706);
+            this.Black_player.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Black_player.Name = "Black_player";
-            this.Black_player.Size = new System.Drawing.Size(88, 91);
+            this.Black_player.Size = new System.Drawing.Size(117, 112);
             this.Black_player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Black_player.TabIndex = 2;
             this.Black_player.TabStop = false;
@@ -80,10 +80,9 @@
             // 
             this.Score_white.AutoSize = true;
             this.Score_white.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Score_white.Location = new System.Drawing.Point(766, 37);
-            this.Score_white.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Score_white.Location = new System.Drawing.Point(1021, 46);
             this.Score_white.Name = "Score_white";
-            this.Score_white.Size = new System.Drawing.Size(53, 37);
+            this.Score_white.Size = new System.Drawing.Size(66, 46);
             this.Score_white.TabIndex = 3;
             this.Score_white.Text = "12";
             this.Score_white.Click += new System.EventHandler(this.label1_Click);
@@ -92,10 +91,9 @@
             // 
             this.Score_black.AutoSize = true;
             this.Score_black.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Score_black.Location = new System.Drawing.Point(766, 604);
-            this.Score_black.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Score_black.Location = new System.Drawing.Point(1021, 743);
             this.Score_black.Name = "Score_black";
-            this.Score_black.Size = new System.Drawing.Size(53, 37);
+            this.Score_black.Size = new System.Drawing.Size(66, 46);
             this.Score_black.TabIndex = 4;
             this.Score_black.Text = "12";
             // 
@@ -103,67 +101,72 @@
             // 
             this.player1.AutoSize = true;
             this.player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player1.Location = new System.Drawing.Point(673, 119);
+            this.player1.Location = new System.Drawing.Point(897, 146);
+            this.player1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.player1.Name = "player1";
-            this.player1.Size = new System.Drawing.Size(73, 20);
+            this.player1.Size = new System.Drawing.Size(91, 25);
             this.player1.TabIndex = 5;
             this.player1.Text = "Player 1";
-            this.player1.Click += new System.EventHandler(this.player_white_Click);
             // 
             // player2
             // 
             this.player2.AutoSize = true;
             this.player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player2.Location = new System.Drawing.Point(673, 538);
+            this.player2.Location = new System.Drawing.Point(897, 662);
+            this.player2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.player2.Name = "player2";
-            this.player2.Size = new System.Drawing.Size(73, 20);
+            this.player2.Size = new System.Drawing.Size(91, 25);
             this.player2.TabIndex = 6;
             this.player2.Text = "Player 2";
             // 
             // player_white
             // 
             this.player_white.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_white.Location = new System.Drawing.Point(752, 116);
+            this.player_white.Location = new System.Drawing.Point(1003, 143);
+            this.player_white.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.player_white.Name = "player_white";
-            this.player_white.Size = new System.Drawing.Size(187, 26);
+            this.player_white.Size = new System.Drawing.Size(248, 30);
             this.player_white.TabIndex = 7;
             this.player_white.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.player_white_KeyPress);
             // 
             // player_black
             // 
             this.player_black.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_black.Location = new System.Drawing.Point(752, 535);
+            this.player_black.Location = new System.Drawing.Point(1003, 658);
+            this.player_black.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.player_black.Name = "player_black";
-            this.player_black.Size = new System.Drawing.Size(182, 26);
+            this.player_black.Size = new System.Drawing.Size(241, 30);
             this.player_black.TabIndex = 8;
             this.player_black.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.player_white_KeyPress);
             // 
             // player_white_text
             // 
             this.player_white_text.AutoSize = true;
-            this.player_white_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_white_text.Location = new System.Drawing.Point(752, 119);
+            this.player_white_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player_white_text.Location = new System.Drawing.Point(1003, 177);
+            this.player_white_text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.player_white_text.Name = "player_white_text";
-            this.player_white_text.Size = new System.Drawing.Size(109, 20);
+            this.player_white_text.Size = new System.Drawing.Size(246, 18);
             this.player_white_text.TabIndex = 9;
-            this.player_white_text.Text = "player_white";
+            this.player_white_text.Text = "Please, press enter on player 1!";
             // 
             // player_black_text
             // 
             this.player_black_text.AutoSize = true;
-            this.player_black_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_black_text.Location = new System.Drawing.Point(752, 538);
+            this.player_black_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player_black_text.Location = new System.Drawing.Point(1001, 629);
+            this.player_black_text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.player_black_text.Name = "player_black_text";
-            this.player_black_text.Size = new System.Drawing.Size(109, 20);
+            this.player_black_text.Size = new System.Drawing.Size(246, 18);
             this.player_black_text.TabIndex = 10;
-            this.player_black_text.Text = "player_black";
+            this.player_black_text.Text = "Please, press enter on player 2!";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(951, 675);
+            this.ClientSize = new System.Drawing.Size(1268, 831);
             this.Controls.Add(this.player_black_text);
             this.Controls.Add(this.player_white_text);
             this.Controls.Add(this.player_black);
@@ -176,7 +179,7 @@
             this.Controls.Add(this.White_player);
             this.Controls.Add(this.board);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

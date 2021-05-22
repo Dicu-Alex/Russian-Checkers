@@ -29,7 +29,6 @@ namespace RussianCheckers
             {
                 player_white.Text = "Computer";
                 player_white.BackColor = Color.LightGray;
-                player_white_text.Hide();
                 player_black_text.Hide();
             }
 
@@ -37,20 +36,14 @@ namespace RussianCheckers
             {
                 player_black.Text = "Computer";
                 player_black.BackColor = Color.LightGray;
+                player_white_text.Hide();
+            }
+
+            if (select == "Two players")
+            {
                 player_black_text.Hide();
                 player_white_text.Hide();
             }
-                
-        }
-
-        private void player_black_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void player_white_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void player_white_KeyPress(object sender, KeyPressEventArgs e)

@@ -35,7 +35,7 @@ namespace RussianCheckers
 
             else if (select == "Two players")
             {
-                string select = "";
+                string select = "Two players";
 
                 this.Hide();
                 Form1 f = new Form1(select);
