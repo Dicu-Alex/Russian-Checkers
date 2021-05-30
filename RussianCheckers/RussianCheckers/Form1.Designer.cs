@@ -39,6 +39,7 @@
             this.player_black = new System.Windows.Forms.TextBox();
             this.player_white_text = new System.Windows.Forms.Label();
             this.player_black_text = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.White_player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Black_player)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +124,7 @@
             // 
             this.player_white.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.player_white.Location = new System.Drawing.Point(1003, 143);
-            this.player_white.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.player_white.Margin = new System.Windows.Forms.Padding(4);
             this.player_white.Name = "player_white";
             this.player_white.Size = new System.Drawing.Size(248, 30);
             this.player_white.TabIndex = 7;
@@ -133,7 +134,7 @@
             // 
             this.player_black.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.player_black.Location = new System.Drawing.Point(1003, 658);
-            this.player_black.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.player_black.Margin = new System.Windows.Forms.Padding(4);
             this.player_black.Name = "player_black";
             this.player_black.Size = new System.Drawing.Size(241, 30);
             this.player_black.TabIndex = 8;
@@ -161,12 +162,20 @@
             this.player_black_text.TabIndex = 10;
             this.player_black_text.Text = "Please, press enter on player 2!";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(940, 218);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(169, 22);
+            this.textBox1.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1268, 831);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.player_black_text);
             this.Controls.Add(this.player_white_text);
             this.Controls.Add(this.player_black);
@@ -205,6 +214,7 @@
         private System.Windows.Forms.TextBox player_black;
         private System.Windows.Forms.Label player_white_text;
         private System.Windows.Forms.Label player_black_text;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -14,9 +14,11 @@ namespace RussianCheckers
         [STAThread]
         static void Main()
         {
+            string select = "Black";
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Player());
+            Application.Run(new Form1(select));
         }
     }
 }

@@ -12,7 +12,7 @@ namespace RussianCheckers
 {
     public partial class Form1 : Form
     {
-        int n;
+        int n, points;
         PictureBox[,] Picture;
         string color = "white_man", k1 = "", k2 = "", B1 = "", B2 = "", win;
         int black = 12, white = 12;
@@ -48,10 +48,10 @@ namespace RussianCheckers
 
         private void player_white_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter)) 
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 TextBox player = sender as TextBox;
-                
+
                 if (player.Text != "" && player_white.Text != player_black.Text)
                 {
                     player.ReadOnly = true;
@@ -69,12 +69,12 @@ namespace RussianCheckers
 
                 else
                 {
-                    if(player.Text == "")
+                    if (player.Text == "")
                     {
                         MessageBox.Show("Player name can't be blank");
                     }
 
-                    if(player_white.Text == player_black.Text)
+                    if (player_white.Text == player_black.Text)
                     {
                         MessageBox.Show("Players cannot have the same name!");
                     }
@@ -111,11 +111,26 @@ namespace RussianCheckers
                     colors[0] = Color.White;
                     colors[1] = Color.Black;
                 }
-              
+
                 else
                 {
                     colors[0] = Color.Black;
                     colors[1] = Color.White;
+                }
+
+                if (colors[0] == Color.Black)
+                {
+                    points = 10;
+                }
+
+                else if (colors[1] == Color.Black)
+                {
+                    points = 10;
+                }
+
+                else
+                {
+                    points = 0;
                 }
 
                 for (int j = 0; j < n; j++)
@@ -133,11 +148,13 @@ namespace RussianCheckers
                     {
                         Picture[i, j].Image = Properties.Resources.white_man;
                         Picture[i, j].Name += " white_man";
+                        points += 20;
                     }
 
                     else if (i > (n / 2) && Picture[i, j].BackColor == Color.Black) {
                         Picture[i, j].Image = Properties.Resources.black_man;
                         Picture[i, j].Name += " black_man";
+                        points += 10;
                     }
 
                     Picture[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
@@ -161,12 +178,20 @@ namespace RussianCheckers
                         }
                     };
 
+
+                    if (player_black_text.Text == "Computer") {
+                        
+                        int x, y;
+
+                        F();
+
+                        AI(points, x, y); 
+                    }
+
                     Picture[i, j].Click += (sender3, e3) =>
-                     {
+                    {
                          if (player_white.ReadOnly && player_black.ReadOnly)
                          {
-
-
                              PictureBox p = sender3 as PictureBox;
 
                              if (p.Image != null)
@@ -227,19 +252,7 @@ namespace RussianCheckers
                                          Score_white.Text = white + "";
                                          Score_black.Text = black + "";
 
-                                         k2 = "";
-
-                                         if (white == 1)
-                                         {
-                                             win = "Black win";
-                                             MessageBox.Show(win);
-                                         }
-
-                                         if (black == 1)
-                                         {
-                                             win = "White win";
-                                             MessageBox.Show(win);
-                                         }
+                                         k2 = "";  
                                      }
                                  }
 
@@ -291,7 +304,7 @@ namespace RussianCheckers
                                                  Picture[x + (c * 2), y - 2].Image = Properties.Resources.next_possition;
                                                  Picture[x + (c * 2), y - 2].Name = (x + (c * 2)) + " " + (y - 2) + " next_possition";
 
-                                                 B1 = (x + (c * 2)) + " " + (y - 2);
+                                                 B2 = (x + (c * 2)) + " " + (y - 2);
                                                  k2 = (x + c) + " " + (y - 1) + " " + Picture[x + c, y - 1].Name.Split(' ')[2];
                                              }
                                          }
@@ -304,13 +317,25 @@ namespace RussianCheckers
                      };
 
                     board.Controls.Add(Picture[i, j]);
+
+                    if (white == 1)
+                    {
+                        win = "Black win";
+                        MessageBox.Show(win);
+                    }
+
+                    if (black == 1)
+                    {
+                        win = "White win";
+                        MessageBox.Show(win);
+                    }
                 }
 
                 top += 82;
             }
         }
 
-        public void F() 
+        public void F()
         {
             if (B1 != "") {
                 int x, y;
@@ -329,5 +354,90 @@ namespace RussianCheckers
                 Picture[x, y].Image = null;
             }
         }
-    }
+
+        public void AI(int points, int x, int y, int picture)
+        {
+            int neg = -1, poz = 1;
+            
+
+            if (Picture[x, y].Name == "black_man")
+            {
+                if (points == 10 && (Picture[x + neg, y + neg].Image == null && Picture[x + neg, y - neg].Image == null))
+                {
+                    Picture[x + neg, y + neg].Image = Properties.Resources.next_possition;
+                    Picture[x + neg, y + neg].Name = (x + neg) + " " + (y + neg) + "next_possition";
+                    B2 = (x + neg) + " " + (y + neg);
+                }
+
+                if (points == 20 && Picture[x + neg, y + neg].Name == "black_man")
+                {
+                    Picture[x + neg, y + poz].Image = Properties.Resources.next_possition;
+                    Picture[x + neg, y + poz].Name = (x + neg) + " " + (y + poz) + "next_possition";
+                    B2 = (x + neg) + " " + (y + poz);
+                }
+
+                if (points == 20 && (Picture[x + neg, y + poz].Name == "black_man"))
+                {
+                    Picture[x + neg, y + neg].Image = Properties.Resources.next_possition;
+                    Picture[x + neg, y + neg].Name = (x + neg) + " " + (y + neg) + "next_possition";
+                    B2 = (x + neg) + " " + (y + neg);
+                }
+
+
+                if (points == 30 && Picture[x + neg, y + neg].Name == "white_man")
+                {
+                    Picture[x + (2 * neg), y + (2 * neg)].Image = Properties.Resources.next_possition;
+                    Picture[x + (2 * neg), y + (2 * neg)].Name = (x + (2 * neg)) + " " + (y + (2 * neg)) + "next_possition";
+                    B2 = (x + (2 * neg)) + " " + (y + (2 * neg));
+                }
+
+                if (points == 30 && (Picture[x + neg, y + poz].Name == "white_man"))
+                {
+                    Picture[x + (2 * neg), y + (2 * poz)].Image = Properties.Resources.next_possition;
+                    Picture[x + (2 * neg), y + (2 * poz)].Name = (x + (2 * neg)) + " " + (y + (2 * poz)) + "next_possition";
+                    B2 = (x + (2 * neg)) + " " + (y + (2 * poz));
+                }
+            }
+
+
+            if (Picture[x, y].Name == "white_man")
+            {
+                if (points == 10 && (Picture[x - neg, y + neg].Image == null && Picture[x - neg, y - neg].Image == null))
+                {
+                    Picture[x - neg, y - neg].Image = Properties.Resources.next_possition;
+                    Picture[x - neg, y - neg].Name = (x - neg) + " " + (y + neg) + "next_possition";
+                    B2 = (x - neg) + " " + (y - neg);
+                }
+
+                if (points == 20 && Picture[x - neg, y + neg].Name == "white_man")
+                {
+                    Picture[x - neg, y + poz].Image = Properties.Resources.next_possition;
+                    Picture[x - neg, y + poz].Name = (x - neg) + " " + (y + poz) + "next_possition";
+                    B2 = (x - neg) + " " + (y + poz);
+                }
+
+                if (points == 20 && (Picture[x - neg, y + poz].Name == "white_man"))
+                {
+                    Picture[x - neg, y + neg].Image = Properties.Resources.next_possition;
+                    Picture[x - neg, y + neg].Name = (x - neg) + " " + (y + neg) + "next_possition";
+                    B2 = (x - neg) + " " + (y + neg);
+                }
+
+
+                if (points == 30 && Picture[x - neg, y + neg].Name == "black_man")
+                {
+                    Picture[x - (2 * neg), y + (2 * neg)].Image = Properties.Resources.next_possition;
+                    Picture[x - (2 * neg), y + (2 * neg)].Name = (x - (2 * neg)) + " " + (y + (2 * neg)) + "next_possition";
+                    B2 = (x - (2 * neg)) + " " + (y + (2 * neg));
+                }
+
+                if (points == 30 && (Picture[x - neg, y + poz].Name == "black_man"))
+                {
+                    Picture[x - (2 * neg), y + (2 * poz)].Image = Properties.Resources.next_possition;
+                    Picture[x - (2 * neg), y + (2 * poz)].Name = (x - (2 * neg)) + " " + (y + (2 * poz)) + "next_possition";
+                    B2 = (x - (2 * neg)) + " " + (y + (2 * poz));
+                }
+            }
+        }
+    } 
 }
