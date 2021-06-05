@@ -18,7 +18,8 @@ namespace RussianCheckers
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(select));
+            //Application.Run(new Form1(select));
+            Application.Run(new Player());
         }
     }
 }

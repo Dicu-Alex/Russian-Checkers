@@ -28,21 +28,15 @@ namespace RussianCheckers
             if (select == "Black")
             {
                 player_white.Text = "Computer";
+                player_white.ReadOnly = true;
                 player_white.BackColor = Color.LightGray;
-                player_black_text.Hide();
             }
 
             if (select == "White")
             {
                 player_black.Text = "Computer";
+                player_black.ReadOnly = true;
                 player_black.BackColor = Color.LightGray;
-                player_white_text.Hide();
-            }
-
-            if (select == "Two players")
-            {
-                player_black_text.Hide();
-                player_white_text.Hide();
             }
         }
 
@@ -179,14 +173,16 @@ namespace RussianCheckers
                     };
 
 
-                    if (player_black_text.Text == "Computer") {
+                    //if (player_black.Text == "Computer") {
                         
-                        int x, y;
+                    //    int x, y;
+                    //    x = Convert.ToInt32(k1.Split(' ')[0]);
+                    //    y = Convert.ToInt32(k1.Split(' ')[1]);
 
-                        F();
+                    //    F();
 
-                        AI(points, x, y); 
-                    }
+                    //    AI(points, x, y); 
+                    //}
 
                     Picture[i, j].Click += (sender3, e3) =>
                     {
@@ -355,7 +351,7 @@ namespace RussianCheckers
             }
         }
 
-        public void AI(int points, int x, int y, int picture)
+        public void AI(int points, int x, int y)
         {
             int neg = -1, poz = 1;
             

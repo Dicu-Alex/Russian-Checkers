@@ -37,9 +37,6 @@
             this.player2 = new System.Windows.Forms.Label();
             this.player_white = new System.Windows.Forms.TextBox();
             this.player_black = new System.Windows.Forms.TextBox();
-            this.player_white_text = new System.Windows.Forms.Label();
-            this.player_black_text = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.White_player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Black_player)).BeginInit();
             this.SuspendLayout();
@@ -140,44 +137,12 @@
             this.player_black.TabIndex = 8;
             this.player_black.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.player_white_KeyPress);
             // 
-            // player_white_text
-            // 
-            this.player_white_text.AutoSize = true;
-            this.player_white_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_white_text.Location = new System.Drawing.Point(1003, 177);
-            this.player_white_text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.player_white_text.Name = "player_white_text";
-            this.player_white_text.Size = new System.Drawing.Size(246, 18);
-            this.player_white_text.TabIndex = 9;
-            this.player_white_text.Text = "Please, press enter on player 1!";
-            // 
-            // player_black_text
-            // 
-            this.player_black_text.AutoSize = true;
-            this.player_black_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_black_text.Location = new System.Drawing.Point(1001, 629);
-            this.player_black_text.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.player_black_text.Name = "player_black_text";
-            this.player_black_text.Size = new System.Drawing.Size(246, 18);
-            this.player_black_text.TabIndex = 10;
-            this.player_black_text.Text = "Please, press enter on player 2!";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(940, 218);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 22);
-            this.textBox1.TabIndex = 11;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1268, 831);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.player_black_text);
-            this.Controls.Add(this.player_white_text);
             this.Controls.Add(this.player_black);
             this.Controls.Add(this.player_white);
             this.Controls.Add(this.player2);
@@ -212,9 +177,6 @@
         private System.Windows.Forms.Label player2;
         private System.Windows.Forms.TextBox player_white;
         private System.Windows.Forms.TextBox player_black;
-        private System.Windows.Forms.Label player_white_text;
-        private System.Windows.Forms.Label player_black_text;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
