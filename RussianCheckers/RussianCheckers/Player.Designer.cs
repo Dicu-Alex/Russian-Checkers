@@ -32,6 +32,7 @@ namespace RussianCheckers
             this.SingleP = new System.Windows.Forms.RadioButton();
             this.TwoP = new System.Windows.Forms.RadioButton();
             this.btnNextPlayer = new System.Windows.Forms.Button();
+            this.OnlineP = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // SingleP
@@ -39,10 +40,10 @@ namespace RussianCheckers
             this.SingleP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.SingleP.AutoSize = true;
             this.SingleP.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SingleP.Location = new System.Drawing.Point(9, 10);
-            this.SingleP.Margin = new System.Windows.Forms.Padding(2);
+            this.SingleP.Location = new System.Drawing.Point(12, 12);
+            this.SingleP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SingleP.Name = "SingleP";
-            this.SingleP.Size = new System.Drawing.Size(201, 35);
+            this.SingleP.Size = new System.Drawing.Size(239, 42);
             this.SingleP.TabIndex = 1;
             this.SingleP.Text = "Single player";
             this.SingleP.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -55,10 +56,10 @@ namespace RussianCheckers
             this.TwoP.AutoSize = true;
             this.TwoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TwoP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TwoP.Location = new System.Drawing.Point(9, 54);
-            this.TwoP.Margin = new System.Windows.Forms.Padding(2);
+            this.TwoP.Location = new System.Drawing.Point(12, 66);
+            this.TwoP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TwoP.Name = "TwoP";
-            this.TwoP.Size = new System.Drawing.Size(190, 35);
+            this.TwoP.Size = new System.Drawing.Size(226, 42);
             this.TwoP.TabIndex = 2;
             this.TwoP.Text = "Two players";
             this.TwoP.UseVisualStyleBackColor = true;
@@ -67,24 +68,40 @@ namespace RussianCheckers
             // btnNextPlayer
             // 
             this.btnNextPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnNextPlayer.Location = new System.Drawing.Point(56, 112);
-            this.btnNextPlayer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNextPlayer.Location = new System.Drawing.Point(70, 191);
+            this.btnNextPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNextPlayer.Name = "btnNextPlayer";
-            this.btnNextPlayer.Size = new System.Drawing.Size(97, 37);
+            this.btnNextPlayer.Size = new System.Drawing.Size(129, 46);
             this.btnNextPlayer.TabIndex = 4;
             this.btnNextPlayer.Text = "Next";
             this.btnNextPlayer.UseVisualStyleBackColor = true;
             this.btnNextPlayer.Click += new System.EventHandler(this.btnNextPlayer_Click);
             // 
+            // OnlineP
+            // 
+            this.OnlineP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.OnlineP.AutoSize = true;
+            this.OnlineP.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.OnlineP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OnlineP.Location = new System.Drawing.Point(12, 123);
+            this.OnlineP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.OnlineP.Name = "OnlineP";
+            this.OnlineP.Size = new System.Drawing.Size(138, 42);
+            this.OnlineP.TabIndex = 5;
+            this.OnlineP.Text = "Online";
+            this.OnlineP.UseVisualStyleBackColor = true;
+            this.OnlineP.CheckedChanged += new System.EventHandler(this.OnlineP_CheckedChanged);
+            // 
             // Player
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 159);
+            this.ClientSize = new System.Drawing.Size(283, 248);
+            this.Controls.Add(this.OnlineP);
             this.Controls.Add(this.btnNextPlayer);
             this.Controls.Add(this.TwoP);
             this.Controls.Add(this.SingleP);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Player";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Player";
@@ -98,5 +115,6 @@ namespace RussianCheckers
         private System.Windows.Forms.RadioButton SingleP;
         private System.Windows.Forms.RadioButton TwoP;
         private System.Windows.Forms.Button btnNextPlayer;
+        private System.Windows.Forms.RadioButton OnlineP;
     }
 }

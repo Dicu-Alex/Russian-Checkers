@@ -42,6 +42,15 @@ namespace RussianCheckers
                 f.ShowDialog();
             }
 
+            else if (select == "Online")
+            {
+                string select = "Online";
+
+                this.Hide();
+                Form1 f = new Form1(select);
+                f.ShowDialog();
+            }
+
             else {
                 MessageBox.Show("No option selected!");
             }
@@ -56,6 +65,11 @@ namespace RussianCheckers
         private void TwoP_CheckedChanged(object sender, EventArgs e)
         {
             select = "Two players";
+        }
+
+        private void OnlineP_CheckedChanged(object sender, EventArgs e)
+        {
+            select = "Online";
         }
     }
 }

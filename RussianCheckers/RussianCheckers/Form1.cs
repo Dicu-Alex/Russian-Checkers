@@ -30,13 +30,15 @@ namespace RussianCheckers
                 player_white.Text = "Computer";
                 player_white.ReadOnly = true;
                 player_white.BackColor = Color.LightGray;
+                player_white_text.Hide();
             }
 
             if (select == "White")
             {
                 player_black.Text = "Computer";
-                player_black.ReadOnly = true;
+                player_black.ReadOnly =  true;
                 player_black.BackColor = Color.LightGray;
+                player_black_text.Hide();
             }
         }
 
@@ -142,13 +144,31 @@ namespace RussianCheckers
                     {
                         Picture[i, j].Image = Properties.Resources.white_man;
                         Picture[i, j].Name += " white_man";
-                        points += 20;
+
+                        if (player_white.Text != "Computer")
+                        {
+                            points += 10;  
+                        }
+
+                        else
+                        {
+                            points = 10;
+                        }
                     }
 
                     else if (i > (n / 2) && Picture[i, j].BackColor == Color.Black) {
                         Picture[i, j].Image = Properties.Resources.black_man;
                         Picture[i, j].Name += " black_man";
-                        points += 10;
+
+                        if (player_black.Text != "Computer")
+                        {
+                            points += 10;
+                        }
+
+                        else 
+                        {
+                            points = 10;
+                        } 
                     }
 
                     Picture[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
@@ -171,18 +191,6 @@ namespace RussianCheckers
                             p.BackColor = Color.Black;
                         }
                     };
-
-
-                    //if (player_black.Text == "Computer") {
-                        
-                    //    int x, y;
-                    //    x = Convert.ToInt32(k1.Split(' ')[0]);
-                    //    y = Convert.ToInt32(k1.Split(' ')[1]);
-
-                    //    F();
-
-                    //    AI(points, x, y); 
-                    //}
 
                     Picture[i, j].Click += (sender3, e3) =>
                     {
@@ -282,7 +290,23 @@ namespace RussianCheckers
                                                  B1 = (x + (c * 2)) + " " + (y + 2);
                                                  k2 = (x + c) + " " + (y + 1) + " " + Picture[x + c, y + 1].Name.Split(' ')[2];
                                              }
-                                         }
+
+                                            else if (((Picture[x + c, y + 1].Image == Picture[7, y + 1].Image) == null) && (p.Name.Split(' ')[2] == "white_man"))
+                                            {
+                                                Picture[7, y].Image = Properties.Resources.white_crown;
+                                                Picture[7, y].Name += " white_crown";
+
+                                                if (player_black.Text != "Computer")
+                                                {
+                                                    points += 10;
+                                                }
+
+                                                else
+                                                {
+                                                    points = 10;
+                                                }
+                                            }
+                                        }
 
                                          catch { }
 
@@ -303,7 +327,23 @@ namespace RussianCheckers
                                                  B2 = (x + (c * 2)) + " " + (y - 2);
                                                  k2 = (x + c) + " " + (y - 1) + " " + Picture[x + c, y - 1].Name.Split(' ')[2];
                                              }
-                                         }
+
+                                            else if (((Picture[x + c, y - 1].Image == Picture[7, y - 1].Image) == null) && (p.Name.Split(' ')[2] == "white_man"))
+                                            {
+                                                Picture[7, y + 1].Image = Properties.Resources.white_crown;
+                                                Picture[7, y + 1].Name += " white_crown";
+
+                                                if (player_black.Text != "Computer")
+                                                {
+                                                    points += 10;
+                                                }
+
+                                                else
+                                                {
+                                                    points = 10;
+                                                }
+                                            }
+                                        }
 
                                          catch { }
                                      }
@@ -313,6 +353,8 @@ namespace RussianCheckers
                      };
 
                     board.Controls.Add(Picture[i, j]);
+
+                    AI(points, i, j);
 
                     if (white == 1)
                     {
