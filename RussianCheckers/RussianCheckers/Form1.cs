@@ -291,7 +291,7 @@ namespace RussianCheckers
                                                  k2 = (x + c) + " " + (y + 1) + " " + Picture[x + c, y + 1].Name.Split(' ')[2];
                                              }
 
-                                            else if (((Picture[x + c, y + 1].Image == Picture[7, y + 1].Image) == null) && (p.Name.Split(' ')[2] == "white_man"))
+                                            else if ((Picture[x + c, y + 1].Image == Picture[7, y + 1].Image) && (Picture[x + c, y + 1].Image == null) && (p.Name.Split(' ')[2] == "white_man"))
                                             {
                                                 Picture[7, y].Image = Properties.Resources.white_crown;
                                                 Picture[7, y].Name += " white_crown";
@@ -328,7 +328,7 @@ namespace RussianCheckers
                                                  k2 = (x + c) + " " + (y - 1) + " " + Picture[x + c, y - 1].Name.Split(' ')[2];
                                              }
 
-                                            else if (((Picture[x + c, y - 1].Image == Picture[7, y - 1].Image) == null) && (p.Name.Split(' ')[2] == "white_man"))
+                                            else if ((Picture[x + c, y - 1].Image == Picture[7, y - 1].Image) && (Picture[x + c, y - 1].Image == null) && (p.Name.Split(' ')[2] == "white_man"))
                                             {
                                                 Picture[7, y + 1].Image = Properties.Resources.white_crown;
                                                 Picture[7, y + 1].Name += " white_crown";
