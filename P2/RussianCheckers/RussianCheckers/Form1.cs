@@ -39,11 +39,11 @@ namespace RussianCheckers
         {
             InitializeComponent();
 
-            white_man = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\white_man.png"), new Size(cellSize - 10, cellSize - 10));
-            black_man = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\black_man.png"), new Size(cellSize - 10, cellSize - 10));
+            white_man = new Bitmap(new Bitmap(@"C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\RussianCheckers\P2\RussianCheckers\RussianCheckers\Resources\white_man.png"), new Size(cellSize - 10, cellSize - 10));
+            black_man = new Bitmap(new Bitmap(@"C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\RussianCheckers\P2\RussianCheckers\RussianCheckers\Resources\black_man.png"), new Size(cellSize - 10, cellSize - 10));
 
-            white_crown = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\white_crown.png"), new Size(cellSize - 10, cellSize - 10));
-            black_crown = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\black_crown.png"), new Size(cellSize - 10, cellSize - 10));
+            white_crown = new Bitmap(new Bitmap(@"C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\RussianCheckers\P2\RussianCheckers\RussianCheckers\Resources\white_crown.png"), new Size(cellSize - 10, cellSize - 10));
+            black_crown = new Bitmap(new Bitmap(@"C:\Users\n_ana\Documents\Anul III\Semestrul II\Inteligență artificială\RussianCheckers\P2\RussianCheckers\RussianCheckers\Resources\black_crown.png"), new Size(cellSize - 10, cellSize - 10));
 
             Initmap();
         }
