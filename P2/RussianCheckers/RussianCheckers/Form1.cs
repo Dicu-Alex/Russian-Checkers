@@ -39,11 +39,11 @@ namespace RussianCheckers
         {
             InitializeComponent();
 
-            white_man = new Bitmap(new Bitmap(@"C:\Users\n_ana\Desktop\RussianCheckers\RussianCheckers\Resources\white_man.png"), new Size(cellSize - 10, cellSize - 10));
-            black_man = new Bitmap(new Bitmap(@"C:\Users\n_ana\Desktop\RussianCheckers\RussianCheckers\Resources\black_man.png"), new Size(cellSize - 10, cellSize - 10));
+            white_man = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\white_man.png"), new Size(cellSize - 10, cellSize - 10));
+            black_man = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\black_man.png"), new Size(cellSize - 10, cellSize - 10));
 
-            white_crown = new Bitmap(new Bitmap(@"C:\Users\n_ana\Desktop\RussianCheckers\RussianCheckers\Resources\white_crown.png"), new Size(cellSize - 10, cellSize - 10));
-            black_crown = new Bitmap(new Bitmap(@"C:\Users\n_ana\Desktop\RussianCheckers\RussianCheckers\Resources\black_crown.png"), new Size(cellSize - 10, cellSize - 10));
+            white_crown = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\white_crown.png"), new Size(cellSize - 10, cellSize - 10));
+            black_crown = new Bitmap(new Bitmap(@"D:\Facultate\RussianCheckers\RussianCheckers\Russian-Checkers\RussianCheckers\Russian-Checkers\P2\RussianCheckers\RussianCheckers\Resources\black_crown.png"), new Size(cellSize - 10, cellSize - 10));
 
             Initmap();
         }
@@ -52,7 +52,7 @@ namespace RussianCheckers
         {
 
         }
-
+        //functie de initializare + pozitionare piese
         public void Initmap()
         {
             currentPlayer = 1;
@@ -72,7 +72,8 @@ namespace RussianCheckers
 
             CreateMap();
         }
-
+        //functie care verifica daca jucatorii mai au piese, reseteaza jocul in caz contrar
+        //inceperea unei ture noi
         public void ResetGame()
         {
             bool player1 = false;
@@ -94,7 +95,7 @@ namespace RussianCheckers
                 Initmap();
             }
         }
-
+        //functie creare board 
         public void CreateMap()
         {
             this.Width = (mapSize + 1) * cellSize;
@@ -106,7 +107,7 @@ namespace RussianCheckers
                 {
                     Button button = new Button();
                     button.Location = new Point(j * cellSize, i * cellSize);
-                    button.Size = new Size(cellSize, cellSize);
+                    button.Size = new Size(cellSize, cellSize); //size celula din board
                     button.Click += new EventHandler(OnFigurePress);
                     if (map[i, j] == 1)
                         button.Image = white_man;
@@ -121,15 +122,15 @@ namespace RussianCheckers
                 }
             }
         }
-
+        //functie care seteaza playerul si redeseneaza board-ul cu piesele mutate
         public void SwitchPlayer()
         {
             currentPlayer = currentPlayer == 1 ? 2 : 1;
             ResetGame();
         }
-
+        //functie care pune culorile gri pe tabla
         public Color GetPrevButtonColor(Button prevButton)
-        {
+        {   
             if ((prevButton.Location.Y / cellSize % 2) != 0)
             {
                 if ((prevButton.Location.X / cellSize % 2) == 0)
@@ -146,7 +147,7 @@ namespace RussianCheckers
             }
             return Color.White;
         }
-
+        //functie de selectare figura +verificare regina +afisare mutari prin apelare de alte functii
         public void OnFigurePress(object sender, EventArgs e)
         {
             if (prevButton != null)
@@ -218,7 +219,7 @@ namespace RussianCheckers
 
             prevButton = pressedButton;
         }
-
+        //functie care arata locatiile de mutare, chiar si pentru regine
         public void ShowPossibleSteps()
         {
             bool isOneStep = true;
@@ -244,7 +245,7 @@ namespace RussianCheckers
             if (!isEatStep)
                 ActivateAllButtons();
         }
-
+        //creare regina din piesa normala
         public void SwitchButtonToCheat(Button button)
         {
             if (map[button.Location.Y / cellSize, button.Location.X / cellSize] == 1 && button.Location.Y / cellSize == mapSize - 1)
@@ -279,7 +280,7 @@ namespace RussianCheckers
             }
 
         }
-
+        //functie care arata mutarile piesei, cu mutare simpla fara capturare
         public void ShowSteps(int iCurrFigure, int jCurrFigure, bool isOnestep = true)
         {
             simpleSteps.Clear();
@@ -289,7 +290,7 @@ namespace RussianCheckers
         }
 
         public void ShowDiagonal(int IcurrFigure, int JcurrFigure, bool isOneStep = false)
-        {
+        {   //arata mutare in dreapta player 1
             int j = JcurrFigure + 1;
             for (int i = IcurrFigure - 1; i >= 0; i--)
             {
@@ -306,7 +307,7 @@ namespace RussianCheckers
                 if (isOneStep)
                     break;
             }
-
+            //arata mutare in stanga player 1
             j = JcurrFigure - 1;
             for (int i = IcurrFigure - 1; i >= 0; i--)
             {
@@ -323,7 +324,7 @@ namespace RussianCheckers
                 if (isOneStep)
                     break;
             }
-
+            //arata mutare in stanga player 2
             j = JcurrFigure - 1;
             for (int i = IcurrFigure + 1; i < 8; i++)
             {
@@ -340,7 +341,7 @@ namespace RussianCheckers
                 if (isOneStep)
                     break;
             }
-
+            //arata mutare in dreapta player 2
             j = JcurrFigure + 1;
             for (int i = IcurrFigure + 1; i < 8; i++)
             {
@@ -358,22 +359,22 @@ namespace RussianCheckers
                     break;
             }
         }
-
+        //functie care creeaza pozitiile urmatoarei miscari
         public bool DeterminePath(int ti, int tj)
         {
 
             if (map[ti, tj] == 0 && !isContinue)
             {
-                buttons[ti, tj].BackColor = Color.DarkGreen;
+                buttons[ti, tj].BackColor = Color.Green;
                 buttons[ti, tj].Enabled = true;
                 simpleSteps.Add(buttons[ti, tj]);
             }
             else
             {
-
+               
                 if (map[ti, tj] != currentPlayer)
                 {
-                    if (pressedButton.Text == "D")
+                    if ((buttons[ti, tj].Image == black_crown) || (buttons[ti, tj].Image == white_crown))
                         ShowProceduralEat(ti, tj, false);
                     else ShowProceduralEat(ti, tj);
                 }
@@ -382,7 +383,7 @@ namespace RussianCheckers
             }
             return true;
         }
-
+        //functie care blocheaza mutarea simpla a unei piese
         public void CloseSimpleSteps(List<Button> simpleSteps)
         {
             if (simpleSteps.Count > 0)
@@ -394,6 +395,7 @@ namespace RussianCheckers
                 }
             }
         }
+        //functie care verfica daca se poate face capturare piesa
         public void ShowProceduralEat(int i, int j, bool isOneStep = true)
         {
             int dirX = i - pressedButton.Location.Y / cellSize;
@@ -450,7 +452,7 @@ namespace RussianCheckers
             }
 
         }
-
+        // functie care captureaza o piesa
         public bool IsButtonHasEatStep(int IcurrFigure, int JcurrFigure, bool isOneStep, int[] dir)
         {
             bool eatStep = false;
@@ -555,7 +557,7 @@ namespace RussianCheckers
             }
             return eatStep;
         }
-
+        //functie care inchide optiunile de mutare simpla
         public void CloseSteps()
         {
             for (int i = 0; i < mapSize; i++)
@@ -566,7 +568,7 @@ namespace RussianCheckers
                 }
             }
         }
-
+        //functie care determina daca mutarea se afla in interiorul board-ului
         public bool IsInsideBorders(int ti, int tj)
         {
             if (ti >= mapSize || tj >= mapSize || ti < 0 || tj < 0)
@@ -575,7 +577,7 @@ namespace RussianCheckers
             }
             return true;
         }
-
+        //functie care activeaza toate butoanele din board
         public void ActivateAllButtons()
         {
             for (int i = 0; i < mapSize; i++)
@@ -586,7 +588,7 @@ namespace RussianCheckers
                 }
             }
         }
-
+        //functie care deactiveaza toate butoanele din board
         public void DeactivateAllButtons()
         {
             for (int i = 0; i < mapSize; i++)
